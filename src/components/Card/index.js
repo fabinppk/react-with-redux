@@ -28,7 +28,7 @@ class Card extends Component {
             <div className="left">
               <div className="details">
                 <h2 className="item-nome">{ this.props.item_name }</h2>
-                <p className="item-preco">RS: { this.props.preco }</p>
+                <p className="item-preco">R$ { this.props.preco }</p>
               </div>
               <div className="buy" onClick={ this.onUpdatePrice }>Adicionar</div>
             </div>
