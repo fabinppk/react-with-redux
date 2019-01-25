@@ -8,11 +8,13 @@ import { Provider } from 'react-redux';
 import productsReducer from './reducers/products-reducer';
 import userReducerButton from './reducers/userButton-reducer';
 import userReducerInput from './reducers/userInput-reducer';
+import totalPrice from './reducers/totalPrice-reducer';
 
 const allReducers = combineReducers({
   products: productsReducer,
   userButton: userReducerButton,
-  userInput: userReducerInput
+  userInput: userReducerInput,
+  totalPrice: totalPrice
 });
 
 const store = createStore(
@@ -20,7 +22,8 @@ const store = createStore(
   {
     products: [{ name: "Iphone" }],
     userButton: "-",
-    userInput: "-"
+    userInput: "-",
+    totalPrice: 0
   },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
@@ -40,7 +43,7 @@ console.log(store.getState());
 
 ReactDOM.render(
   <Provider store={store}>
-    <App prop="Alguma coisa"/>
+    <App />
   </Provider>,
   document.getElementById('root')
 );

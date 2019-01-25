@@ -1,28 +1,12 @@
 import React, { Component } from 'react';
 import './stylesheets/style.scss';
-import { bindActionCreators} from 'redux';
+
 import { connect } from 'react-redux';
 
 import Card from './components/Card/index';
 import BlocoPreco from './components/BlocoPreco/index';
 
-import { updateUserButton } from './actions/userButton-action';
-import { updateUserInput } from './actions/userInput-action';
-
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.onUpdateUserButton = this.onUpdateUserButton.bind(this);
-    this.onUpdateUserInput = this.onUpdateUserInput.bind(this);
-  }
-
-  onUpdateUserButton() {
-    this.props.onUpdateUserButton('Fabiano');
-  }
-
-  onUpdateUserInput(e) {
-    this.props.onUpdateUserInput(e.target.value);
-  }
 
   render() {
     return (
@@ -43,7 +27,7 @@ class App extends Component {
 
         <BlocoPreco>
           <div className="block-preco">
-            <h2>Preço: R$ </h2>
+            <h2>Preço: R$ { this.props.totalPrice.toFixed(2).replace('.', ',') }</h2>
           </div>
         </BlocoPreco>
       </div>
@@ -51,18 +35,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state, props) => ({
-  products: state.products,
-  userButton: state.userButton,
-  userInput: state.userInput,
-  newProp: props.prop
+const mapStateToProps = (state) => ({
+    totalPrice: state.totalPrice
 })
 
-const mapActionsToProps = (dispatch, props) => {
-  return bindActionCreators({
-    onUpdateUserButton: updateUserButton,
-    onUpdateUserInput: updateUserInput
-  }, dispatch);
-}
-
-export default connect(mapStateToProps, mapActionsToProps)(App);
+export default connect(mapStateToProps)(App);
