@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './stylesheets/style.scss';
 import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import { updateUserButton } from './actions/userButton-action';

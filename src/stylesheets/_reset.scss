@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: 0 !important;
+  font-family: 'Comfortaa', cursive;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+button, input, select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+input:focus,
+input:active,
+input:visited,
+button:focus,
+button:active,
+button:visited,
+select:focus,
+select:active,
+select:visited {
+  border: 0;
+}
