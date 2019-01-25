@@ -28,17 +28,6 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-// console.log(store.getState());
-//
-// const updateUserAction = {
-//   type: 'updateUser',
-//   payload: {
-//     user: "John"
-//   }
-// }
-//
-// store.dispatch(updateUserAction);
-
 console.log(store.getState());
 
 ReactDOM.render(

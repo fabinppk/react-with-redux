@@ -22,7 +22,7 @@ class Card extends Component {
       <div className="wrapper">
         <div className="container">
           <div className="top">
-            <img src={ this.props.image } alt={ this.props.image }/>
+            <img src={ this.props.image } alt={ this.props.item_name }/>
           </div>
           <div className="bottom">
             <div className="left">
