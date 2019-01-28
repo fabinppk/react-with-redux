@@ -3,10 +3,16 @@ import './stylesheets/style.scss';
 
 import { connect } from 'react-redux';
 
+import { logPageView, initGA } from './components/Analytics/index';
 import Card from './components/Card/index';
 import BlocoPreco from './components/BlocoPreco/index';
 
 class App extends Component {
+
+  componentDidMount () {
+    initGA();
+    logPageView();
+  }
 
   render() {
     return (
