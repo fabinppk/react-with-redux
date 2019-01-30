@@ -11,16 +11,27 @@ class Card extends Component {
   constructor(props) {
     super(props);
     this.onUpdatePrice = this.onUpdatePrice.bind(this);
+    this.state = {
+      adicionado: false
+    }
   }
 
   onUpdatePrice() {
-    this.props.onUpdatePrice(parseFloat(this.props.totalPrice) + parseFloat(this.props.preco));
+    if(this.state.adicionado){
+      this.props.onUpdatePrice(parseFloat(this.props.totalPrice) - parseFloat(this.props.preco));
+      this.setState({ adicionado: false});
+    }else{
+      this.props.onUpdatePrice(parseFloat(this.props.totalPrice) + parseFloat(this.props.preco));
+      this.setState({ adicionado: true});
+    }
   }
 
   render() {
+    const adicionado = this.state.adicionado;
+
     return(
       <div className="wrapper">
-        <div className="container">
+        <div className={ adicionado ? 'container adicionado' : 'container' }>
           <div className="top">
             <img src={ this.props.image } alt={ this.props.item_name }/>
           </div>
@@ -30,7 +41,7 @@ class Card extends Component {
                 <h2 className="item-nome">{ this.props.item_name }</h2>
                 <p className="item-preco">R$ { this.props.preco }</p>
               </div>
-              <div className="buy" onClick={ this.onUpdatePrice }>Adicionar</div>
+              <div className="buy" onClick={ this.onUpdatePrice }>{ adicionado ? 'Remover' : 'Adicionar' }</div>
             </div>
           </div>
         </div>
