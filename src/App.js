@@ -15,20 +15,21 @@ class App extends Component {
   }
 
   render() {
+
+    const products = this.props.products.map( (product) =>
+      // Wrong! The key should have been specified here:
+      <Card
+        key={ product.id }
+        image={ product.image_url }
+        item_name={ product.name }
+        preco={ product.price }
+      />
+    );
+
     return (
       <div className="App">
         <div className="block-cards">
-          <Card
-            image="https://s-media-cache-ak0.pinimg.com/736x/49/80/6f/49806f3f1c7483093855ebca1b8ae2c4.jpg"
-            item_name="Cadeira 1"
-            preco="30,00"
-          />
-
-          <Card
-            image="https://bimbon-assets.s3.amazonaws.com/ckeditor/picture/data/53fcf699f36933130500257f/content_poltrona_barcelona_preta_1.jpg"
-            item_name="Cadeira 2"
-            preco="50,00"
-          />
+          { products }
         </div>
 
         <BlocoPreco>
@@ -42,7 +43,8 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    totalPrice: state.totalPrice
+    totalPrice: state.totalPrice,
+    products: state.products
 })
 
 export default connect(mapStateToProps)(App);

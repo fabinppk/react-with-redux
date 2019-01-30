@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { products_list } from './products_list';
 import productsReducer from './reducers/products-reducer';
 import userReducerButton from './reducers/userButton-reducer';
 import userReducerInput from './reducers/userInput-reducer';
@@ -20,7 +21,7 @@ const allReducers = combineReducers({
 const store = createStore(
   allReducers,
   {
-    products: [{ name: "Iphone" }],
+    products: products_list,
     userButton: "-",
     userInput: "-",
     totalPrice: 0
